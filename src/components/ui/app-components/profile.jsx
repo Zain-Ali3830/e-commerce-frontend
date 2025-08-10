@@ -17,6 +17,7 @@ import axios from "axios";
 import SetProfile from "./setProfile";
 import { UserContext } from "@/app/context/userContext";
 import { useContext } from "react";
+import Logout from "./logout";
 function ViewProfile() {
   const { profileData } = useContext(UserContext);
   console.log("Profile Data:", profileData);
@@ -49,7 +50,8 @@ function ViewProfile() {
               {profileData?.data?.phone}
             </p>
           </div>
-          <Dialog>
+         <div className="flex justify-between items-center mt-4">
+           <Dialog>
             <form>
               <DialogTrigger asChild>
                 <button className="text-gray-600 text-lg border border-gray-300 rounded-md px-3 py-1 hover:bg-gray-100 transition-colors duration-200">
@@ -59,6 +61,8 @@ function ViewProfile() {
               <SetProfile profile={profileData} />
             </form>
           </Dialog>
+          <Logout />
+         </div>
         </div>
       </DialogContent>
     </>
